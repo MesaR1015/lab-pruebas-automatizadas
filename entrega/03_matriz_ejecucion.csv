@@ -1,0 +1,11 @@
+id_caso,titulo,modulo,prioridad,estado,bug_relacionado,fecha,ejecutor,evidencia,observaciones
+TC-001,Login exitoso como administrador,Autenticacion,P0,Pass,,2026-04-20,Juan Rojas,captura_login.png,Login funcionando correctamente con admin/Admin123!
+TC-002,Salida (OUT) mayor al stock disponible,Movimientos,P0,Fail,BUG-001,2026-04-20,Juan Rojas,capturas/TC02_salida_excesiva.png,El sistema permitio registrar salida superior al stock disponible dejando inventario negativo
+TC-003,Ajuste (ADJUST) reemplaza el stock actual,Movimientos,P0,Fail,BUG-002,2026-04-20,Juan Rojas,capturas/TC03_ajuste_stock.png,El movimiento ADJUST sumo la cantidad al stock actual en lugar de reemplazarlo
+TC-004,Validacion de SKU duplicado al crear producto,Productos,P0,Fail,BUG-003,2026-04-20,Juan Rojas,capturas/TC04_sku_duplicado.png,El sistema permitio registrar un nuevo producto con un SKU ya existente
+TC-005,Validacion de precio y stock inicial negativos,Productos,P0,Fail,BUG-004,2026-04-20,Juan Rojas,capturas/TC05_valores_negativos.png,El formulario permitio guardar un producto con precio y stock inicial negativos
+TC-006,Restriccion de permisos para rol operador,Seguridad/Roles,P0,Pass,,2026-04-20,Juan Rojas,capturas/TC06_permisos_operador.png,El rol operador restringe correctamente editar y eliminar productos permitiendo solo registrar movimientos
+TC-007,Prevencion de inyeccion XSS en nombre de producto,Seguridad,P0,Fail,BUG-005,2026-04-20,Juan Rojas,capturas/TC07_xss_producto.png,Vulnerabilidad XSS confirmada: se ejecuto alert('XSS') al guardar etiqueta img en el nombre
+TC-008,Exactitud del valor total del inventario en Dashboard,Dashboard,P1,Fail,BUG-006,2026-04-20,Juan Rojas,capturas/TC08_dashboard_total.png,El valor total mostrado en el Dashboard no coincide con la suma real de stock por precio
+TC-009,Busqueda de productos insensible a mayusculas/minusculas,Busqueda,P1,Fail,BUG-007,2026-04-20,Juan Rojas,capturas/TC09_busqueda_case.png,El buscador distingue entre mayusculas y minusculas arrojando cero resultados para productos existentes
+TC-010,Exportacion CSV incluye el 100% de los productos,Reportes/CSV,P1,Fail,BUG-008,2026-04-20,Juan Rojas,capturas/TC10_exportar_csv.png,El archivo CSV descargado omite registros y no exporta la totalidad del inventario
